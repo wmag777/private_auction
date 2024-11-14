@@ -153,8 +153,8 @@
                 <div class="card border-0 shadow-sm">
                     <div class="card-body p-4">
                         <h2 class="text-center mb-4">Submit Your Bid</h2>
-                        <form method="POST" action="/index.php?action=submitBid" id="bidForm">
-
+                        <form method="POST" action="/index.php" id="bidForm">
+                            <input type="hidden" name="action" value="submitBid">
                             <div class="mb-3">
                                 <label for="name" class="form-label">Full Name *</label>
                                 <input type="text" class="form-control" id="name" name="name" required>
@@ -223,19 +223,6 @@
         <p class="text-muted">&copy; 2024 Sky.vision. All rights reserved.</p>
     </footer>
 </div>
-
-
-
-
-ЧТО доделать?
-
-Выставить техническую информацию по домену, кому принадлежит.
-Составить roadMap событий: что, когда, как будет происходить ?
-
-Убрать блок "для кого" куда то взад
-настроить почту
-настроить БД -> пользователи и ставки
-назначить ставку ОТ
 
 <script src="/assets/js/bootstrap.bundle.min.js"></script>
 <script src="/assets/js/main.js"></script>

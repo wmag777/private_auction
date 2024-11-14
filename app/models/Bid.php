@@ -7,16 +7,29 @@ class Bid {
     private $position;
     private $amount;
     private $message;
+
     public function __construct() {
-        $this->name = $_REQUEST['name'];
-        $this->email = $_REQUEST['email'];
-        $this->company = $_REQUEST['company'];
-        $this->position = $_REQUEST['position'];
-        $this->amount = $_REQUEST['amount'];
-        $this->message = $_REQUEST['message'];
+        $this->name = $_REQUEST['name'] ?? '';
+        $this->email = $_REQUEST['email'] ?? '';
+        $this->company = $_REQUEST['company'] ?? '';
+        $this->position = $_REQUEST['position'] ?? '';
+        $this->amount = $_REQUEST['amount'] ?? 0;
+        $this->message = $_REQUEST['message'] ?? '';
     }
 
-    public function save() {
-        // Save to database logic here
+    public function save($pdo) {
+        $stmt = $pdo->prepare("
+            INSERT INTO bids (name, email, company, position, amount, message) 
+            VALUES (:name, :email, :company, :position, :amount, :message)
+        ");
+
+        $stmt->bindParam(':name', $this->name);
+        $stmt->bindParam(':email', $this->email);
+        $stmt->bindParam(':company', $this->company);
+        $stmt->bindParam(':position', $this->position);
+        $stmt->bindParam(':amount', $this->amount);
+        $stmt->bindParam(':message', $this->message);
+
+        return $stmt->execute();
     }
 }
