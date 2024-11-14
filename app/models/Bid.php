@@ -32,4 +32,15 @@ class Bid {
 
         return $stmt->execute();
     }
+
+    public static function getAllBids() {
+        global $pdo;
+
+        // Подготовка и выполнение запроса для получения всех ставок по убыванию суммы
+        $stmt = $pdo->prepare("SELECT * FROM bids ORDER BY amount DESC");
+        $stmt->execute();
+
+        // Возвращаем все записи
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

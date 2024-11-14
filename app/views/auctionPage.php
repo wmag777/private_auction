@@ -219,6 +219,34 @@
         </div>
     </section>
 
+    <section>
+        <div class="container my-5">
+            <h2 class="text-center mb-4">Pre Bids Table</h2>
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped table-hover">
+                    <thead class="table-dark">
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Company</th>
+                        <th>Bid</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach ($bids as $bid): ?>
+                        <tr>
+                            <td><?= substr($bid['name'], 0, 2) . '***' . substr($bid['name'], -2) ?></td>
+                            <td><?= substr($bid['email'], 0, 2) . '***' . substr($bid['email'], -3) ?></td>
+                            <td><?= substr($bid['company'], 0, 2) . '***' . substr($bid['company'], -2) ?></td>
+                            <td>* * *</td>
+                        </tr>
+                    <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
     <footer class="text-center mt-5 py-4">
         <p class="text-muted">&copy; 2024 Sky.vision. All rights reserved.</p>
     </footer>
