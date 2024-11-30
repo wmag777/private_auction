@@ -154,3 +154,73 @@ body {
         font-size: 1.1rem;
     }
 }
+
+/*///////////////////////////////////////////////*/
+
+.hero-section {
+    position: relative;
+    overflow: hidden;
+    height: 100vh; /* Высота секции равна высоте окна */
+}
+
+#background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Видео заполняет весь контейнер */
+    object-fit: cover; /* Видео растягивается, чтобы заполнить контейнер */
+    z-index: 1;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Затемнение */
+    z-index: 2;
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 3; /* Текст поверх видео и затемнения */
+}
+
+/* Для мобильных устройств */
+@media (max-width: 768px) {
+    #background-video {
+        height: 100%; /* Видео адаптируется по высоте */
+        object-fit: cover; /* Убедимся, что видео покрывает весь слой */
+    }
+    .hero-section {
+        height: 100vh; /* Обновляем высоту слоя для мобильных */
+    }
+}
+
+
+/*//////////////////////*/
+
+/* Обёртка для создания горизонтальной прокрутки */
+.table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* для плавной прокрутки на iOS */
+}
+
+table {
+    width: 100%; /* Таблица занимает всю ширину контейнера */
+    border-collapse: collapse;
+}
+
+table th, table td {
+    padding: 8px 12px;
+    text-align: left;
+    border: 1px solid #ddd; /* Добавление границ для удобства чтения */
+}
+
+@media (max-width: 768px) {
+    table th, table td {
+        font-size: 14px; /* Уменьшение шрифта для мобильных */
+    }
+}
